@@ -13,4 +13,16 @@
 			return null;
 		}
 	}
+	
+	function isNullOrEmpty($string){
+		
+		if($string == null)
+			return true;
+		if($string == "")
+			return true;
+		if(trim($string) == "")
+			return true;
+			
+		return false;
+	}
 ?>

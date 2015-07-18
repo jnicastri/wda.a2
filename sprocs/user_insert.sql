@@ -20,13 +20,13 @@ BEGIN
 	
 	INSERT INTO UserDetail
 		(DateCreated, FirstName, LastName, Email, DisplayUserName,
-		 [Password], BillingAddressLine1, BillingAddressLine2, BillingAddressSuburb,
+		 `Password`, BillingAddressLine1, BillingAddressLine2, BillingAddressSuburb,
 		 BillingAddressState, BillingAddressZip)
 	VALUES
 		(insDT, firstName, lastName, email, userName, userPwd,
 		bAddresLine1, bAddresLine2, bAddressSuburb, bAddressState, bAddressZip);
 		
-	SELECT LAST_INSERT_ID INTO id;
+	SELECT LAST_INSERT_ID() INTO id;
 	SELECT insDT INTO createdDate;
 	
 		

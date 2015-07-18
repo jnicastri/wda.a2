@@ -6,7 +6,6 @@ CREATE PROCEDURE User_Update(
 	IN lastName VARCHAR(60),
 	IN email VARCHAR(50),
 	IN userName VARCHAR(50),
-	IN userPwd VARCHAR(200),
 	IN bAddresLine1 VARCHAR(60),
 	IN bAddresLine2 VARCHAR(60),
 	IN bAddressSuburb VARCHAR(30),
@@ -16,18 +15,18 @@ CREATE PROCEDURE User_Update(
 BEGIN
 	
 	UPDATE 
-		UserDetail
+		UserDetail U
 	SET
-		FirstName = firstName,
-		LastName = lastName,
-		Email = email,
-		DisplayUserName = userName,
-		BillingAddressLine1 = bAddresLine1,
-		BillingAddressLine2 = bAddresLine2,
-		BillingAddressSuburb = bAddressSuburb,
-		BillingAddressState = bAddressState,
-		BillingAddressZip = bAddressZip
+		U.FirstName = firstName,
+		U.LastName = lastName,
+		U.Email = email,
+		U.DisplayUserName = userName,
+		U.BillingAddressLine1 = bAddresLine1,
+		U.BillingAddressLine2 = bAddresLine2,
+		U.BillingAddressSuburb = bAddressSuburb,
+		U.BillingAddressState = bAddressState,
+		U.BillingAddressZip = bAddressZip
 	WHERE
-		Id = id;
+		U.Id = id;
 	
-END
+END$$
