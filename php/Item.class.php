@@ -6,6 +6,7 @@
 		public $Name;
 		public $LongDescription;
 		public $Category;
+		private $mediaItems;
 		
 		function __construct(){ }
 		
@@ -25,6 +26,8 @@
 			$newItem->Category = Category::LoadById($catId);
 			
 			$newItem->Save();
+			
+			return $newItem;
 		}
 		
 		//Instance Functions
@@ -78,6 +81,47 @@
 
 				$stmt->execute();
 			}
+		}
+		
+		function GetPrimaryMediaItem(){
+			
+			if($this->mediaItems == null){
+				$this->mediaItems = MediaItem::GetAllByItemId($this->Id);
+			}
+			
+			$primary = null;
+			
+			// Find the primary image
+			foreach($this->mediaItems as $item){
+				if($item->IsPrimary){
+					$primary = $item;
+					break;
+				}
+			}
+			
+			if($primary == null){
+				// No primary is set
+				if(count($this->mediaItems) > 0){
+					// MediaItems are available, returning first one
+					return $this->mediaItems[0];
+				}
+			}
+			else{
+				return $primary;
+			}
+			
+			//No primary set and none available
+			return null;
+		}
+		
+		function GetAllMediaItems(){
+			
+			if($this->mediaItems == null){
+				$this->mediaItems = MediaItem::GetAllByItemId($this->Id);
+			}
+			
+			return $this->mediaItems;
+				
 		}
 			
 	}
