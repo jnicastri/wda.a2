@@ -30,7 +30,7 @@
 				
 				$cat->Id= $record['Id'];
 				$cat->Name = $record['CategoryName']; 
-				$listItem->Description = $record['CategoryDescription']; 
+				$cat->Description = $record['CategoryDescription']; 
 					
 				array_push($categories, $cat);
 			}
