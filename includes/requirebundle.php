@@ -7,6 +7,8 @@
 	require_once("php/AddressStruct.class.php");
 	require_once("php/AbstractBase.class.php");
 	require_once("php/User.class.php");
+	require_once("php/Category.class.php");
+	require_once("php/Item.class.php");
 	
 	//session_start();
 ?>
