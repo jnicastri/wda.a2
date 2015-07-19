@@ -17,7 +17,7 @@
 			return $loaduser;
 		}
 		
-		static function GetNew($firstName, $lastName, $email, $userName, $address){
+		static function GetNew($firstName, $lastName, $email, $pwd, $userName, $address){
 			
 			$newUser = new User();
 			
@@ -26,6 +26,8 @@
 			$newUser->Email = $email;
 			$newUser->UserName = $userName;
 			$newUser->BillingAddress = $address;
+			
+			$newUser->Save($pwd);
 			
 			return $newUser;
 		}
