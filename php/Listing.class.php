@@ -78,7 +78,7 @@
 					if($topBid == null && $bid->Status == Bid::STATUS_ACTIVE)
 						$topBid = $bid;
 					else{
-						if(($bid->BidValue > $topBid->BidValue) && $bid->Status == Bid:STATUS_ACTIVE)
+						if(($bid->BidValue > $topBid->BidValue) && $bid->Status == Bid::STATUS_ACTIVE)
 							$topBid = $bid;			
 					}
 				}
