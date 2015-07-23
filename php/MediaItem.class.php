@@ -33,7 +33,6 @@
 				array_push($mediaItems, $item);
 			}
 			return $mediaItems;
-			
 		}
 		
 		function UpdateStatus($status, $primary){
