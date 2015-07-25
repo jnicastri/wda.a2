@@ -10,5 +10,4 @@
 	require_once("php/Bid.class.php");
 	require_once("php/Listing.class.php");
 	require_once("php/OrderTransaction.class.php");
-	require_once("php/Session.class.php");
 ?>

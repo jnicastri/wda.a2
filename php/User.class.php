@@ -92,6 +92,7 @@
 			$this->LastName = $record['LastName'];
 			$this->Email = $record['Email'];
 			$this->UserName = $record['DisplayUserName'];
+			$this->DateCreated = $record['DateCreated'];
 			
 			$userAddress = new AddressStruct();
 			$userAddress->Line1 = $record['BillingAddressLine1'];
