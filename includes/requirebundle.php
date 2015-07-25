@@ -10,6 +10,10 @@
 	require_once("php/Category.class.php");
 	require_once("php/MediaItem.class.php");
 	require_once("php/Item.class.php");
+	require_once("php/Bid.class.php");
+	require_once("php/Listing.class.php");
+	require_once("php/OrderTransaction.class.php");
+	require_once("php/Session.class.php");
 	
 	
 	//session_start();
