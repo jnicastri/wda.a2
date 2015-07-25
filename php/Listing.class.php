@@ -66,6 +66,30 @@
 			return count($listings) > 0 ? $listings : null;
 		} 
 		
+		static function LoadById($listingId){
+			
+			$conStr = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8";
+			$con = new PDO($conStr, DB_USER, DB_PWD);
+			
+			$stmt = $con->prepare('CALL Listing_LoadById(?)');
+			$stmt->bindValue(1, $listingId, PDO::PARAM_INT);
+			
+			$stmt->execute();
+
+			$item = new Listing();
+			
+			$item->Id= $record['Id'];
+			$item->ItemId = $record['ItemId']; 
+			$item->UserId = $record['UserId'];
+			$item->ListedDate = $record['ListedDate'];
+			$item->EndDate = $record['EndDate'];
+			$item->ReserveAmount = $record['ReserveAmount'];
+			$item->ShippingAmount = $record['ShippingAmount']; 
+			$item->BidIncrementAmount = $record['BidIncrementAmount'];
+	
+			return $item;
+		}
+		
 		function GetTopBid(){
 			
 			if($this->Bids == null)
