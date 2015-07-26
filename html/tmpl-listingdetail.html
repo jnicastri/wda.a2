@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>${i_title}: Auction House Online</title>
+	</head>
+	<body>
+		<!-- $include html/master-header.html -->
+		<section>
+			<div>
+				<h2>${i_title}</h2>
+				<table>
+					<tr>
+						<td>Item Category:</td>
+						<td>${i_cat}</td>
+					</tr>
+					<tr>
+						<td>Shipping Amount:</td>
+						<td>${l_shipamt}</td>
+					</tr>
+					<tr>
+						<td>Min. Bid Amount:</td>
+						<td>${l_bidamt}</td>
+					</tr>
+					<tr>
+						<td>Current Top Bid:</td>
+						<td>${l_top}</td>
+					</tr>
+				</table>
+			</section>
+			<!-- $BeginBlock PrimaryImage -->
+			<section>
+				<div>
+					<img src="${primaryimg}" alt="primary image" />
+				</div>
+			</section>
+			<!-- $EndBlock PrimaryImage -->
+			<section>
+				${i_desc}<br />
+			</section>
+		</div>
+		<!-- $include html/master-footer.html -->
+	</body>
+</html>

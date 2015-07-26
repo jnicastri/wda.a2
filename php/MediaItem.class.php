@@ -24,11 +24,11 @@
 		
 				$item = new MediaItem();
 				
-				$item->Id= $record['Id'];
-				$item->ItemId = $record['ItemId']; 
+				$item->Id= intval($record['Id']);
+				$item->ItemId = intval($record['ItemId']); 
 				$item->FileName = $record['FileName'];
-				$item->IsPrimary = $record['IsPrimary'];
-				$item->IsActive = $record['IsActive']; 
+				$record['IsPrimary'] == chr(0x01) ? $item->IsPrimary = true : $item->IsPrimary = false;
+				$record['IsActive'] == chr(0x01) ? $item->IsActive = true : $item->IsActive = false;
 					
 				array_push($mediaItems, $item);
 			}

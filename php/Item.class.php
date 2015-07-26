@@ -86,7 +86,7 @@
 		function GetPrimaryMediaItem(){
 			
 			if($this->mediaItems == null){
-				$this->mediaItems = MediaItem::GetAllByItemId($this->Id);
+				$this->mediaItems = MediaItem::LoadByItemId($this->Id);
 			}
 			
 			$primary = null;
