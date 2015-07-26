@@ -9,6 +9,8 @@
 		public $SaleAmount;
 		public $ShippingAddress;
 		public $SoldListing;
+		public $ShippingFirstName;
+		public $ShippingLastName;
 		
 		function __construct(){ }
 		
@@ -67,21 +69,21 @@
 			
 			$stmt = $con->prepare('CALL OrderTrans_LoadCollection(?, ?)');
 			$stmt->bindValue(1, $buyerId, PDO::PARAM_INT);
-			$stmt->bindValue(1, "buyer", PDO::PARAM_STR);
-			
+			$stmt->bindValue(2, "buyer", PDO::PARAM_STR);
+	
 			$stmt->execute();
 			
 			while($record = $stmt->fetch(PDO::FETCH_ASSOC)){
-		
-				$item = new OrderTransaction();
 				
-				$item->Id= $record['Id'];
-				$item->ItemId = $record['SellingUserDetailId']; 
-				$item->UserId = $record['PurchasingUserId'];
-				$item->ListedDate = $record['TransactionDate'];
-				$item->EndDate = $record['SaleAmount'];
-				$item->ReserveAmount = $record['ShippingFirstName'];
-				$item->ShippingAmount = $record['ShippingLastName']; 
+				$item = new OrderTransaction();				
+				
+				$item->Id= intval($record['Id']);
+				$item->SellingUserId = intval($record['SellingUserDetailId']); 
+				$item->PurchasingUserId = intval($record['PurchasingUserId']);
+				$item->TransactionDate = $record['TransactionDate'];
+				$item->SaleAmount = floatval($record['SaleAmount']);
+				$item->ShippingFirstName = $record['ShippingFirstName'];
+				$item->ShippingLastName = $record['ShippingLastName']; 
 				
 				$shipAddress = new AddressStruct();
 				$shipAddress->Line1 = $record['ShippingAddressLine1'];
@@ -90,10 +92,11 @@
 				$shipAddress->State = $record['ShippingAddressState'];
 				$shipAddress->Zip = $record['ShippingAddressZip']; 
 				$item->ShippingAddress = $shipAddress;
-				
-				$item->SoldListing = Listing::LoadById($record['ListingId']);
-		
+
+				$item->SoldListing = Listing::LoadById(intval($record['ListingId']));
 				array_push($transactions, $item);
+				
+				
 			}
 			
 			return count($transactions) > 0 ? $transactions : null;
@@ -107,22 +110,21 @@
 			$con = new PDO($conStr, DB_USER, DB_PWD);
 			
 			$stmt = $con->prepare('CALL OrderTrans_LoadCollection(?, ?)');
-			$stmt->bindValue(1, $buyerId, PDO::PARAM_INT);
-			$stmt->bindValue(1, "seller", PDO::PARAM_STR);
-			
+			$stmt->bindValue(1, $sellerId, PDO::PARAM_INT);
+			$stmt->bindValue(2, "seller", PDO::PARAM_STR);
 			$stmt->execute();
 			
 			while($record = $stmt->fetch(PDO::FETCH_ASSOC)){
 		
 				$item = new OrderTransaction();
 				
-				$item->Id= $record['Id'];
-				$item->ItemId = $record['SellingUserDetailId']; 
-				$item->UserId = $record['PurchasingUserId'];
-				$item->ListedDate = $record['TransactionDate'];
-				$item->EndDate = $record['SaleAmount'];
-				$item->ReserveAmount = $record['ShippingFirstName'];
-				$item->ShippingAmount = $record['ShippingLastName']; 
+				$item->Id= intval($record['Id']);
+				$item->SellingUserId = intval($record['SellingUserDetailId']); 
+				$item->PurchasingUserId = intval($record['PurchasingUserId']);
+				$item->TransactionDate = $record['TransactionDate'];
+				$item->SaleAmount = floatval($record['SaleAmount']);
+				$item->ShippingFirstName = $record['ShippingFirstName'];
+				$item->ShippingLastName = $record['ShippingLastName']; 
 				
 				$shipAddress = new AddressStruct();
 				$shipAddress->Line1 = $record['ShippingAddressLine1'];

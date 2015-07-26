@@ -26,7 +26,7 @@ BEGIN
 		 SaleAmount, ShippingFirstName, ShippingLastName, ShippingAddressLine1, ShippingAddressLine2, 
 		 ShippingAddressSuburb, ShippingAddressState, ShippingAddressZip)
 	VALUES
-		(sellerId, purchasedId, insDT, ccNo, ccExp, saleAmt, shipFname. shipLname,
+		(sellerId, purchasedId, insDT, ccNo, ccExp, saleAmt, shipFname, shipLname,
 		sAddresLine1, sAddresLine2, sAddressSuburb, sAddressState, sAddressZip);
 		
 	SELECT LAST_INSERT_ID() INTO id;

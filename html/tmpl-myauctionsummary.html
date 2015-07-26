@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Auction Summary: Auction House Online</title>
+	</head>
+	<body>
+		<!-- $include html/master-header.html -->
+		<div>
+			<fieldset>
+				<legend>My Listings</legend>
+				<!-- $BeginBlock listingsListHead -->
+				<table>
+					<tr>
+						<th>List Date</th>
+						<th>End Date</th>
+						<th>Item Id</th>
+						<th>Reserve Amount</th>
+						<th>Shipping Amount</th>
+						<th>Top Bid</th>
+					</tr>
+					<!-- $EndBlock listingsListHead -->
+					<!-- $BeginBlock listingItem -->
+					<tr>
+						<td>${l_listdate}</td>
+						<td>${l_enddate}</td>
+						<td>${l_listitemid}</td>
+						<td>${l_resamt}</td>
+						<td>${l_shipamt}</td>
+						<td>${l_topbid}</td>
+					</tr>
+					<!-- $EndBlock listingItem -->	
+				<!-- $BeginBlock listingsListFooter -->
+				</table>
+				<!-- $EndBlock listingsListFooter -->
+				<!-- $BeginBlock listingsNoResults -->
+				<div>There are no active listings to show.</div>
+				<!-- $EndBlock listingsNoResults -->
+			</fieldset>
+		</div>
+		<div>
+			<fieldset>
+				<legend>My Sales</legend>
+				<!-- $BeginBlock salesListHead -->
+				<table>
+					<tr>
+						<th>Purchaser</th>
+						<th>TransactionDate</th>
+						<th>Sale Amount</th>
+						<th>Listing Id</th>
+						<th>Shipping Name</th>
+					</tr>
+					<!-- $EndBlock salesListHead -->
+					<!-- $BeginBlock salesItem -->
+					<tr>
+						<td>${s_buyerid}</td>
+						<td>${s_transdate}</td>
+						<td>${s_saleamt}</td>
+						<td>${s_listingid}</td>
+						<td>${s_name}</td>
+					</tr>
+					<!-- $EndBlock salesItem -->
+				<!-- $BeginBlock salesListFooter -->	
+				</table>
+				<!-- $EndBlock salesListFooter -->
+				<!-- $BeginBlock salesNoResults -->
+				<div>You have not sold any items yet.</div>
+				<!-- $EndBlock salesNoResults -->
+			</fieldset>
+		</div>
+		<div>
+			<fieldset>
+				<legend>My Purchases</legend>
+				<!-- $BeginBlock purchaseListHead -->
+				<table>
+					<tr>
+						<th>Seller</th>
+						<th>TransactionDate</th>
+						<th>Sale Amount</th>
+						<th>Listing Id</th>
+					</tr>
+					<!-- $EndBlock purchaseListHead -->
+					<!-- $BeginBlock purchaseItem -->
+					<tr>
+						<td>${p_sellerid}</td>
+						<td>${p_transdate}</td>
+						<td>${p_saleamt}</td>
+						<td>${p_listingid}</td>
+					</tr>
+					<!-- $EndBlock purchaseItem -->
+				<!-- $BeginBlock purchaseListFooter -->	
+				</table>
+				<!-- $EndBlock purchaseListFooter -->
+				<!-- $BeginBlock purchaseNoResults -->
+				<div>You have not made any purchases yet.</div>
+				<!-- $EndBlock purchaseNoResults -->
+			</fieldset>
+		</div>
+		<!-- $include html/master-footer.html -->
+	</body>
+</html>

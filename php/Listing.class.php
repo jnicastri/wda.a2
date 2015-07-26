@@ -41,24 +41,24 @@
 			$conStr = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8";
 			$con = new PDO($conStr, DB_USER, DB_PWD);
 			
-			$stmt = $con->prepare('CALL Listing_GetByUser(?, ?)');
+			$stmt = $con->prepare('CALL Listing_GetByUserId(?, ?)');
 			$stmt->bindValue(1, $uid, PDO::PARAM_INT);
 			$stmt->bindValue(2, $status, PDO::PARAM_INT);
 			
 			$stmt->execute();
 			
 			while($record = $stmt->fetch(PDO::FETCH_ASSOC)){
-		
+				
 				$item = new Listing();
 				
-				$item->Id= $record['Id'];
-				$item->ItemId = $record['ItemId']; 
-				$item->UserId = $record['UserId'];
+				$item->Id= intval($record['Id']);
+				$item->ItemId = intval($record['ItemId']); 
+				$item->UserId = intval($record['UserId']);
 				$item->ListedDate = $record['ListedDate'];
 				$item->EndDate = $record['EndDate'];
-				$item->ReserveAmount = $record['ReserveAmount'];
-				$item->ShippingAmount = $record['ShippingAmount']; 
-				$item->BidIncrementAmount = $record['BidIncrementAmount'];
+				$item->ReserveAmount = floatval($record['ReserveAmount']);
+				$item->ShippingAmount = floatval($record['ShippingAmount']); 
+				$item->BidIncrementAmount = floatval($record['BidIncrementAmount']);
 		
 				array_push($listings, $item);
 			}
@@ -71,22 +71,22 @@
 			$conStr = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8";
 			$con = new PDO($conStr, DB_USER, DB_PWD);
 			
-			$stmt = $con->prepare('CALL Listing_LoadById(?)');
+			$stmt = $con->prepare('CALL Listing_GetById(?)');
 			$stmt->bindValue(1, $listingId, PDO::PARAM_INT);
 			
 			$stmt->execute();
-
+			$record = $stmt->fetch(PDO::FETCH_ASSOC);
 			$item = new Listing();
 			
-			$item->Id= $record['Id'];
-			$item->ItemId = $record['ItemId']; 
-			$item->UserId = $record['UserId'];
+			$item->Id= intval($record['Id']);
+			$item->ItemId = intval($record['ItemId']); 
+			$item->UserId = intval($record['UserId']);
 			$item->ListedDate = $record['ListedDate'];
 			$item->EndDate = $record['EndDate'];
-			$item->ReserveAmount = $record['ReserveAmount'];
-			$item->ShippingAmount = $record['ShippingAmount']; 
-			$item->BidIncrementAmount = $record['BidIncrementAmount'];
-	
+			$item->ReserveAmount = floatval($record['ReserveAmount']);
+			$item->ShippingAmount = floatval($record['ShippingAmount']); 
+			$item->BidIncrementAmount = floatval($record['BidIncrementAmount']);
+			
 			return $item;
 		}
 		
