@@ -39,7 +39,7 @@
 				
 				foreach($data as $listItem){	
 					$topBid = $listItem->GetTopBid();
-					$temp->setVariable("l_listdate", $listItem->ListedDate);
+					$temp->setVariable("l_listdate",$listItem->ListedDate);
 					$temp->setVariable("l_enddate", $listItem->EndDate);
 					$temp->setVariable("l_listitemid", "<a href=\"listingdetail.php?id=".strval($listItem->ItemId)."\">View Listing</a>");
 					$temp->setVariable("l_resamt", "$".strval(number_format($listItem->ReserveAmount,2)));

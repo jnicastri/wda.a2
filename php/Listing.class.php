@@ -22,11 +22,13 @@
 		function Status(){
 		
 			$now = new DateTime();
+			$lDate = new DateTime($this->ListedDate);
+			$eDate = new DateTime($this->EndDate);
 		
-			if($ListedDate > $now){
+			if($lDate > $now){
 				return Listing::STATUS_SCHEDULED;
 			}
-			else if($now >= $ListedDate && $now < $EndDate){
+			else if($now >= $lDate && $now < $eDate){
 				return Listing::STATUS_ACTIVE;
 			}
 			else{
@@ -54,8 +56,8 @@
 				$item->Id= intval($record['Id']);
 				$item->ItemId = intval($record['ItemId']); 
 				$item->UserId = intval($record['UserId']);
-				$item->ListedDate = $record['ListedDate'];
-				$item->EndDate = $record['EndDate'];
+				$item->ListedDate = strval($record['ListedDate']);
+				$item->EndDate = strval($record['EndDate']);
 				$item->ReserveAmount = floatval($record['ReserveAmount']);
 				$item->ShippingAmount = floatval($record['ShippingAmount']); 
 				$item->BidIncrementAmount = floatval($record['BidIncrementAmount']);
@@ -92,8 +94,9 @@
 		
 		function GetTopBid(){
 			
-			if($this->Bids == null)
+			if($this->Bids == null){
 				$this->Bids = Bid::LoadByListing($this->Id);
+			}
 			
 			$topBid = null;
 			

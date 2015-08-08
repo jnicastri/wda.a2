@@ -33,6 +33,8 @@
 		$temp->setVariable("i_cat", $item->Category->Name);
 		$temp->setVariable("l_shipamt", "$".strval(number_format($listing->ShippingAmount,2)));
 		$temp->setVariable("l_bidamt", "$".strval(number_format($listing->BidIncrementAmount,2)));
+		$temp->setVariable("l_start", strval($listing->ListedDate));
+		$temp->setVariable("l_end", strval($listing->EndDate));
 		
 		$topBid = $listing->GetTopBid();
 		
@@ -42,7 +44,7 @@
 		
 		//Binding Images
 		$primaryImage = $item->GetPrimaryMediaItem();
-		var_dump($primaryImage);
+
 		if(!is_null($primaryImage)){
 			$temp->setVariable("primaryimg", MEDIA_ITEM_PATH . $primaryImage->FileName);
 			$temp->addBlock("PrimaryImage");
@@ -52,5 +54,12 @@
 		$temp->setVariable("i_desc", $item->LongDescription);
 		
 		//TODO: Handle Multiple Images
+		
+		// Place a Bid link
+		if($listing->Status() == Listing::STATUS_ACTIVE){
+			$temp->setVariable("itemBidId", $item->Id);
+			$temp->addBlock("BidBtn");
+		}
+		
 	}
 ?>
