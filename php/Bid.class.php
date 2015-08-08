@@ -42,14 +42,13 @@
 			$this->Id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
 		}
 		
-		function Delete(){
+		static function Delete($id){
 			
-			$this->Status = STATUS_DELETED;
 			$conStr = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8";
 			$con = new PDO($conStr, DB_USER, DB_PWD);
 			
 			$stmt = $con->prepare('CALL Bid_Delete(?)');
-			$stmt->bindValue(1, $this->Id, PDO::PARAM_INT);
+			$stmt->bindValue(1, $id, PDO::PARAM_INT);
 			$stmt->execute();
 		}
 		
