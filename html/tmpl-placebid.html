@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>${i_title}: Auction House Online</title>
+		<script type="text/javascript">
+			function clientVal(){
+				var val = document.forms["bidForm"]["bidAmt"].value;
+				
+				if(val == null || val == ""){
+					document.getElementById("bidErrorMsg").innerHTML = "Empty Value Entered";
+					return false;
+				}
+				
+				if(isNaN(val)){
+					document.getElementById("bidErrorMsg").innerHTML = "Invalid Value Entered";
+					return false;
+				}
+				
+				return true;
+			}
+		</script>
+	</head>
+	<body>
+		<!-- $include html/master-header.html -->
+		<section>
+			<div>
+				<h2>${i_title}</h2>
+				<table>
+					<tr>
+						<td>End Date:</td>
+						<td>${l_end}</td>
+					</tr>
+					<tr>
+						<td>Min. Bid Amount:</td>
+						<td>${l_bidamt}</td>
+					</tr>
+					<tr>
+						<td>Current Top Bid:</td>
+						<td>${l_top}</td>
+					</tr>
+				</table>
+				<form name="bidForm" onsubmit="return clientVal()" action="p_placebid.php" method="POST">
+					<table>
+						<tr>
+							<td>Enter your bid amount:</td>
+							<td><input type="text" name="bidAmt" /></td>
+							<td><span id="bidErrorMsg"></span></td>
+						</tr>
+						<tr>
+							<td colspan="3"><input type="submit" value="Bid" />
+							<input type="hidden" name="listingId" value="${listingIdHf}" />
+							</td>
+						</tr>
+					</table>					
+				</form>
+			</div>
+		</section>
+		<!-- $include html/master-footer.html -->
+	</body>
+</html>

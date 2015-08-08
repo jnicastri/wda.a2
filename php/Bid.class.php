@@ -23,7 +23,6 @@
 			$newBid->Status = Bid::STATUS_ACTIVE;
 			
 			$newBid->Save();
-			
 			return $newBid;
 		}
 		
@@ -32,15 +31,14 @@
 			$conStr = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8";
 			$con = new PDO($conStr, DB_USER, DB_PWD);
 			
-			$stmt = $con->prepare('CALL Bid_Insert(?,?,?,? @id)');
+			$stmt = $con->prepare('CALL Bid_Insert(?,?,?,?,@id)');
 				
 			$stmt->bindValue(1, $this->ListingId, PDO::PARAM_INT);
 			$stmt->bindValue(2, $this->BiddingUserId, PDO::PARAM_INT);
-			$stmt->bindValue(3, strval($this->BidValue), PDO::PARAM_STR);
+			$stmt->bindValue(3, strval(number_format($this->BidValue, 2)), PDO::PARAM_STR);
 			$stmt->bindValue(4, $this->Status, PDO::PARAM_INT);
-		
 			$stmt->execute();
-			
+
 			$this->Id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
 		}
 		
@@ -72,10 +70,10 @@
 				$item = new Bid();
 				
 				$item->Id= $record['Id'];
-				$item->ListingId = $record['ListingId']; 
-				$item->BiddingUserId = $record['BiddingUserId'];
-				$item->BidValue = $record['BidValue'];
-				$item->Status = $record['Status'];
+				$item->ListingId = intval($record['ListingId']); 
+				$item->BiddingUserId = intval($record['BiddingUserId']);
+				$item->BidValue = tryParseToNull($record['BidValue'], "float");
+				$item->Status = intval($record['Status']);
 		
 				array_push($bids, $item);
 			}
