@@ -77,6 +77,7 @@
 			$stmt->bindValue(1, $listingId, PDO::PARAM_INT);
 			
 			$stmt->execute();
+
 			$record = $stmt->fetch(PDO::FETCH_ASSOC);
 			$item = new Listing();
 			

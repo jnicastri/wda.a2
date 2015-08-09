@@ -18,15 +18,15 @@
 	
 	function loadPage($listId, &$temp){
 		
-		$listing = Listing::LoadById($listId);
-		
+		$listing = Listing::LoadById($listId);		
+
 		if(is_null($listing))
 			header("Location: index.php"); 
 			
 		$item = Item::LoadById($listing->ItemId);
 		
 		if(is_null($item))
-			header("Location: index.php"); 
+			header("Location: index.php");
 		
 		// Binding text data
 		$temp->setVariable("i_title", $item->Name);

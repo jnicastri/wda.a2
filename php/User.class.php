@@ -86,7 +86,7 @@
 			
 			$stmt->bindValue(1, $id, PDO::PARAM_INT);
 			$stmt->execute();
-			
+
 			$record = $stmt->fetch(PDO::FETCH_ASSOC);
 			
 			$this->Id = intval($record['Id']);
