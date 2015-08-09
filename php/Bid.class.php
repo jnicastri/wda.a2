@@ -39,7 +39,8 @@
 			$stmt->bindValue(4, $this->Status, PDO::PARAM_INT);
 			$stmt->execute();
 
-			$this->Id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
+			$bi = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
+			$this->Id = intval($bi[0]["@id"]);			
 		}
 		
 		static function Delete($id){

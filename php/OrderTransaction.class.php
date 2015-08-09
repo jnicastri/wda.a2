@@ -55,8 +55,10 @@
 				
 				$stmt->execute();
 				
-				$this->Id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
-				$this->TransactionDate = $con->query("SELECT @dt")->fetchAll(PDO::FETCH_ASSOC);
+				$id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
+				$this->Id = intval($id[0]["@id"]);
+				$td = $con->query("SELECT @dt")->fetchAll(PDO::FETCH_ASSOC);
+				$this->TransactionDate = new DateTime($td[0]["@dt"]);
 			}
 		}
 		

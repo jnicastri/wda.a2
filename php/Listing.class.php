@@ -124,6 +124,8 @@
 			
 			$newListing = new Listing();
 			
+			echo "here";
+			
 			$newListing->ListedDate = $listDate;
 			$newListing->EndDate = $endDate;
 			$newListing->ItemId = $itemId;
@@ -131,6 +133,8 @@
 			$newListing->ReserveAmount = $resAmt;
 			$newListing->ShippingAmount = $shipAmt;
 			$newListing->BidIncrementAmount = $bidIncr;
+			
+			var_dump($newListing);
 			
 			$newListing->Save();
 			return $newListing;
@@ -143,29 +147,29 @@
 			
 			if($this->IsNew()){
 				
-				$stmt = $con->prepare('CALL Listing_Insert(?,?,?,?,?,?,? @id)');
+				$stmt = $con->prepare('CALL Listing_Insert(?,?,?,?,?,?,?, @id)');
 				
-				$stmt->bindValue(1, $this->ListedDate, PDO::PARAM_DATETIME);
-				$stmt->bindValue(2, $this->EndDate, PDO::PARAM_DATETIME);
-				$stmt->bindValue(3, $this->ItemId, PDO::PARAM_INT);
-				$stmt->bindValue(4, $this->UserId, PDO::PARAM_INT);
+				$stmt->bindValue(1, date_format($this->ListedDate, "Y/m/d H:i:s"), PDO::PARAM_STR);
+				$stmt->bindValue(2, date_format($this->EndDate, "Y/m/d H:i:s"), PDO::PARAM_STR);
+				$stmt->bindValue(3, intval($this->ItemId, PDO::PARAM_INT));
+				$stmt->bindValue(4, intval($this->UserId, PDO::PARAM_INT));
 				$stmt->bindValue(5, strval($this->ReserveAmount), PDO::PARAM_STR);
 				$stmt->bindValue(6, strval($this->ShippingAmount), PDO::PARAM_STR);
 				$stmt->bindValue(7, strval($this->BidIncrementAmount), PDO::PARAM_STR);
-			
+
 				$stmt->execute();
-				
-				$this->Id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
+				$id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
+				$this->Id = intval($id[0]["@id"]);
 			}
 			else{
 				
 				$stmt = $con->prepare('CALL Listing_Update(?,?,?,?,?,?,?,?)');
 				
-				$stmt->bindValue(1, $this->ListedDate, PDO::PARAM_INT);
-				$stmt->bindValue(2, $this->ListedDate, PDO::PARAM_DATETIME);
-				$stmt->bindValue(3, $this->EndDate, PDO::PARAM_DATETIME);
-				$stmt->bindValue(4, $this->ItemId, PDO::PARAM_INT);
-				$stmt->bindValue(5, $this->UserId, PDO::PARAM_INT);
+				$stmt->bindValue(1, $this->Id, PDO::PARAM_INT);
+				$stmt->bindValue(2, date_format($this->ListedDate, "Y/m/d H:i:s"), PDO::PARAM_STR);
+				$stmt->bindValue(3, date_format($this->EndDate, "Y/m/d H:i:s"), PDO::PARAM_STR);
+				$stmt->bindValue(4, intval($this->ItemId), PDO::PARAM_INT);
+				$stmt->bindValue(5, intval($this->UserId), PDO::PARAM_INT);
 				$stmt->bindValue(6, strval($this->ReserveAmount), PDO::PARAM_STR);
 				$stmt->bindValue(7, strval($this->ShippingAmount), PDO::PARAM_STR);
 				$stmt->bindValue(8, strval($this->BidIncrementAmount), PDO::PARAM_STR);

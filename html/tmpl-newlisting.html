@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Create a new Listing: Auction House Online</title>
+		<link href="scripts/jquery-ui/jquery-ui.css" rel="stylesheet">
+		<link href="css/global.css" rel="stylesheet">
+		<script src="scripts/jquery-ui/external/jquery/jquery.js"></script>
+		<script src="scripts/jquery-ui/jquery-ui.js"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.min.js"></script>
+		
+		<script>
+			
+			jQuery.validator.setDefaults({
+			  debug: false,
+			  success: "valid"
+			});
+			
+			$(document).ready(function(){
+				$("#newListingFrm").validate({
+				  rules: {
+					itemNameTb: "required",
+					itemDescTa: "required",
+					startTb: "required",
+					endTb: "required",
+					resAmtTb: "required",
+					shipAmtTb: "required"
+				},
+				  messages: {
+				  	itemNameTb: "Required field",
+					itemDescTa: "Required field",
+					startTb: "Required field",
+					endTb: "Required field",
+					resAmtTb: "Required field",
+					shipAmtTb: "Required field"
+				    } 
+				});
+			});
+			
+		</script>
+	</head>
+	<body>
+		<!-- $include html/master-header.html -->
+		<h2>Create a new Listing</h2>
+		<form id="newListingFrm" name="newListingFrm" method="POST" action="p_newlisting.php" enctype="multipart/form-data">
+			<fieldset>
+				<legend>Item Details</legend>
+				<table>
+					<tr>
+						<td>Item Name:</td>
+						<td><input id="itemNameTb" name="itemNameTb" type="text" /></td>
+						<td><label for="itemNameTb"></label></td>
+					</tr>
+					<tr>
+						<td>Item Description:</td>
+						<td><textarea id="itemDescTa" name="itemDescTa" rows="4" cols="50"></textarea></td>
+						<td><label for="itemDescTa"></label></td>
+					</tr>
+					<tr>
+						<td>Item Category:</td>
+						<td>
+							<select name="catSelect">
+							<!-- $BeginBlock categorySel -->
+							<option value="${c_id}">${c_name}</option>																																												
+							<!-- $EndBlock categorySel -->
+							</select>
+						</td>
+						<td><label for="catSelect"></label></td>
+					</tr>
+					<tr>
+						<td>Primary Image Upload:</td>
+						<td><input accept="image/*" type="file" name="imgUpload" id="imgUpload" />
+						<td><label for="imgUpload"></label></td>
+					</tr>
+				</table>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Auction Details</legend>
+				<table>
+					<tr>
+						<td>Start Date:</td>
+						<td><input id="startTbDp" name="startTb" type="text" /></td>
+						<td><label for="startTbDp"></label></td>
+					</tr>
+					<tr>
+						<td>End Date:</td>
+						<td><input id="endTbDp" name="endTb" type="text" /></td>
+						<td><label for="endTbDp"></label></td>
+					</tr>
+					<tr>
+						<td>Reserve Amount:</td>
+						<td><input id="resAmtTb" name="resAmtTb" type="text" /></td>
+						<td><label for="resAmtTb"></label></td>
+					</tr>
+					<tr>
+						<td>Min. Bid Amount ($)</td>
+						<td><input id="minBidSpnr" name="minBidAmtTb" type="text" /></td>
+						<td><label for="minBidSpnr"></label></td>
+					</tr>
+					<tr>
+						<td>Winning Shipping Cost:</td>
+						<td><input id="shipAmtTb" name="shipAmtTb" type="text" /></td>
+						<td><label for="shipAmtTb"></label></td>
+					</tr>
+				</table>
+			</fieldset>
+			<div>
+				<input type="submit" value="Create Listing" />
+			</div>
+		</form>
+		<!-- $include html/master-footer.html -->
+
+		<script>
+			$(function() {
+			    var sDate = $("#startTbDp").datepicker({
+								dateFormat: "dd-mm-yy"
+							});
+				var eDate = $("#endTbDp").datepicker({
+								dateFormat: "dd-mm-yy"
+							});
+				var spin = $("#minBidSpnr").spinner({
+								culture: "au",
+								min: 1,
+								numberFormat: "C"
+							});
+				spin.spinner("value", 1.00);
+				sDate.datepicker("setDate", "+1d");
+				eDate.datepicker("setDate", "+1m +1d");
+			  });
+		</script>
+	</body>
+</html>

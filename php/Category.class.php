@@ -28,7 +28,7 @@
 		
 				$cat = new Category();
 				
-				$cat->Id= $record['Id'];
+				$cat->Id= intval($record['Id']);
 				$cat->Name = $record['CategoryName']; 
 				$cat->Description = $record['CategoryDescription']; 
 					
@@ -65,7 +65,8 @@
 				
 				$stmt->execute();
 				
-				$this->Id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
+				$id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
+				$this->Id = intval($id[0]["@id"]);
 			}
 		}
 	}

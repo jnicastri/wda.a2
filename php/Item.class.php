@@ -47,7 +47,7 @@
 			$this->DateCreated = $record['DateCreated'];
 			
 			$this->Category = new Category();
-			$this->Category->Id = $record['CatId'];
+			$this->Category->Id = intval($record['CatId']);
 			$this->Category->Name = $record['CatName'];
 			$this->Category->Description = $record['CatDesc'];
 		}
@@ -67,8 +67,10 @@
 			
 				$stmt->execute();
 				
-				$this->Id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
-				$this->DateCreated = $con->query("SELECT @createdDate")->fetchAll(PDO::FETCH_ASSOC);
+				$id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
+				$this->Id = intval($id[0]["@id"]);
+				$dc = $con->query("SELECT @createdDate")->fetchAll(PDO::FETCH_ASSOC);
+				$this->DateCreated = new DateTime($dc[0]["@createdDate"]);
 			}
 			else{
 				

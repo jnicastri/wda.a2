@@ -62,8 +62,9 @@
 			$this->IsActive == true ? $stmt->bindValue(4, 1, PDO::PARAM_INT) : $stmt->bindValue(4, 0, PDO::PARAM_INT);
 			
 			$stmt->execute();
+			$id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
+			$this->Id = intval($id[0]["@id"]);
 			
-			$this->Id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
 		}
 		
 	}	

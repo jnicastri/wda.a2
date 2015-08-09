@@ -54,8 +54,10 @@
 			
 				$stmt->execute();
 				
-				$this->Id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
-				$this->DateCreated = $con->query("SELECT @createdDate")->fetchAll(PDO::FETCH_ASSOC);
+				$id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
+				$this->Id = intval($id[0]["@id"]);
+				$dt = $con->query("SELECT @createdDate")->fetchAll(PDO::FETCH_ASSOC);
+				$this->DateCreated = new DateTime($dt[0]["@createdDate"]);
 			}
 			else{
 				
