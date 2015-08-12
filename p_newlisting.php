@@ -35,16 +35,14 @@
 			exit();
 		}
 		
-		var_dump($POST_['imgUpload']);
-		
-		if(isset($_POST['imgUpload'])){
-			
-			
+		// Handing File Upload (if one is provided)
+		if(isset($_FILES['imgUpload'])){
+
 			$fn = pathinfo($_FILES['imgUpload']['name']);
 			$ext = $fn['extension'];
 			
-			$newFn = "file".$ext;
-			$fullPath = MEDIA_ITEM_PATH . $newFn;
+			$newFn = uniqid().".".$ext;
+			$fullPath = __DIR__ ."/". MEDIA_ITEM_PATH . $newFn;
 			move_uploaded_file($_FILES['imgUpload']['tmp_name'], $fullPath);
 			
 			$mediaItem = new MediaItem();
@@ -53,7 +51,7 @@
 			$mediaItem->IsPrimary = true;
 			$mediaItem->IsActive = true;
 			
-			$medaiItem->Save();
+			$mediaItem->Save();
 		}
 		
 		$sDt = new DateTime($startDt);
@@ -67,8 +65,8 @@
 			exit();
 		}
 		else{
-			//header("Location: listingdetail.php?id=".$listing->Id);
-			//exit();
+			header("Location: listingdetail.php?id=".$listing->Id);
+			exit();
 		}
 	}	
 	
