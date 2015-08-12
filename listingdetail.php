@@ -57,7 +57,7 @@
 		
 		// Place a Bid link
 		if($listing->Status() == Listing::STATUS_ACTIVE){
-			$temp->setVariable("itemBidId", $item->Id);
+			$temp->setVariable("itemBidId", $listing->Id);
 			$temp->addBlock("BidBtn");
 		}
 		

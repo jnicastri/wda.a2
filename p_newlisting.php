@@ -60,7 +60,7 @@
 		$eDt = new DateTime($endDt);
 		
 		$listing = Listing::GetNew($sDt, $eDt, $item->Id,
-			$_SESSION[SESSION_USER_KEY]->Id, $resAmt, $shipAmt, $minBid);
+		$_SESSION[SESSION_USER_KEY]->Id, $resAmt, $shipAmt, $minBid);
 			
 		if(is_null($listing)){
 			header("Location: newlisting.php?error=1");
