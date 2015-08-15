@@ -8,9 +8,12 @@
 	<body>
 		<div id="content-container">
 			<!-- $include html/master-header.html -->
-			<div>
+			<section id="main-content">
+				<h2>My Bidding History</h2>
+				<fieldset>
+					<legend><h6>All Bids</h6></legend>
 				<!-- $BeginBlock tableHeader -->
-				<table>
+				<table class="default-table">
 					<tr>
 						<th>Listing Link</th>
 						<th>Listing Ending</th>
@@ -31,7 +34,8 @@
 				<!-- $BeginBlock tableFooter -->
 				</table>
 				<!-- $EndBlock tableFooter -->
-			</div>
+				</fieldset>
+			</section>
 			<!-- $include html/master-footer.html -->
 		</div>
 	</body>

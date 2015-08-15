@@ -42,74 +42,78 @@
 	<body>
 		<div id="content-container">
 			<!-- $include html/master-header.html -->
-			<h2>Create a new Listing</h2>
-			<form id="newListingFrm" name="newListingFrm" method="POST" action="p_newlisting.php" enctype="multipart/form-data">
-				<fieldset>
-					<legend>Item Details</legend>
-					<table>
-						<tr>
-							<td>Item Name:</td>
-							<td><input id="itemNameTb" name="itemNameTb" type="text" /></td>
-							<td><label for="itemNameTb"></label></td>
-						</tr>
-						<tr>
-							<td>Item Description:</td>
-							<td><textarea id="itemDescTa" name="itemDescTa" rows="4" cols="50"></textarea></td>
-							<td><label for="itemDescTa"></label></td>
-						</tr>
-						<tr>
-							<td>Item Category:</td>
-							<td>
-								<select name="catSelect">
-								<!-- $BeginBlock categorySel -->
-								<option value="${c_id}">${c_name}</option>																																												
-								<!-- $EndBlock categorySel -->
-								</select>
-							</td>
-							<td><label for="catSelect"></label></td>
-						</tr>
-						<tr>
-							<td>Primary Image Upload:</td>
-							<td><input accept="image/*" type="file" name="imgUpload" id="imgUpload" />
-							<td><label for="imgUpload"></label></td>
-						</tr>
-					</table>
-				</fieldset>
-				
-				<fieldset>
-					<legend>Auction Details</legend>
-					<table>
-						<tr>
-							<td>Start Date:</td>
-							<td><input id="startTbDp" name="startTb" type="text" /></td>
-							<td><label for="startTbDp"></label></td>
-						</tr>
-						<tr>
-							<td>End Date:</td>
-							<td><input id="endTbDp" name="endTb" type="text" /></td>
-							<td><label for="endTbDp"></label></td>
-						</tr>
-						<tr>
-							<td>Reserve Amount:</td>
-							<td><input id="resAmtTb" name="resAmtTb" type="text" /></td>
-							<td><label for="resAmtTb"></label></td>
-						</tr>
-						<tr>
-							<td>Min. Bid Amount ($)</td>
-							<td><input id="minBidSpnr" name="minBidAmtTb" type="text" /></td>
-							<td><label for="minBidSpnr"></label></td>
-						</tr>
-						<tr>
-							<td>Winning Shipping Cost:</td>
-							<td><input id="shipAmtTb" name="shipAmtTb" type="text" /></td>
-							<td><label for="shipAmtTb"></label></td>
-						</tr>
-					</table>
-				</fieldset>
-				<div>
-					<input type="submit" value="Create Listing" />
-				</div>
-			</form>
+			<section id="main-content">
+				<h2>Create a New Listing</h2>
+				<hr />
+				<form id="newListingFrm" name="newListingFrm" method="POST" action="p_newlisting.php" enctype="multipart/form-data">
+					<fieldset>
+						<legend><h6>Item Details</h6></legend>
+						<table class="form-tbl">
+							<tr>
+								<td><label>Item Name:</label></td>
+								<td><input class="default-input-text" id="itemNameTb" name="itemNameTb" type="text" /></td>
+								<td><label for="itemNameTb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Item Description:</label></td>
+								<td><textarea class="default-input-text" id="itemDescTa" name="itemDescTa" rows="8" cols="24"></textarea></td>
+								<td><label for="itemDescTa"></label></td>
+							</tr>
+							<tr>
+								<td><label>Item Category:</label></td>
+								<td>
+									<select name="catSelect">
+									<!-- $BeginBlock categorySel -->
+									<option value="${c_id}">${c_name}</option>																																												
+									<!-- $EndBlock categorySel -->
+									</select>
+								</td>
+								<td><label for="catSelect"></label></td>
+							</tr>
+							<tr>
+								<td><label>Primary Image Upload:</label></td>
+								<td><input accept="image/*" type="file" name="imgUpload" id="imgUpload" />
+								<td><label for="imgUpload"></label></td>
+							</tr>
+						</table>
+					</fieldset>
+					<hr />
+					<fieldset>
+						<legend><h6>Auction Details</h6></legend>
+						<table class="form-tbl">
+							<tr>
+								<td><label>Start Date:</label></td>
+								<td><input class="default-input-text" id="startTbDp" name="startTb" type="text" /></td>
+								<td><label for="startTbDp"></label></td>
+							</tr>
+							<tr>
+								<td><label>End Date:</label></td>
+								<td><input class="default-input-text" id="endTbDp" name="endTb" type="text" /></td>
+								<td><label for="endTbDp"></label></td>
+							</tr>
+							<tr>
+								<td><label>Reserve Amount:</label></td>
+								<td><input class="default-input-text" id="resAmtTb" name="resAmtTb" type="text" /></td>
+								<td><label for="resAmtTb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Min. Bid Amount ($):</label></td>
+								<td><input class="default-input-text" id="minBidSpnr" name="minBidAmtTb" type="text" /></td>
+								<td><label for="minBidSpnr"></label></td>
+							</tr>
+							<tr>
+								<td><label>Winning Shipping Cost ($):</label></td>
+								<td><input class="default-input-text" id="shipAmtTb" name="shipAmtTb" type="text" /></td>
+								<td><label for="shipAmtTb"></label></td>
+							</tr>
+						</table>
+					</fieldset>
+					<div >
+						<input class="default-input-btn" type="submit" value="Create Listing" />
+						<br />&nbsp;
+					</div>
+				</form>
+			</section>
 			<!-- $include html/master-footer.html -->
 		</div>
 		<script>

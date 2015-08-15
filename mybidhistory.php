@@ -33,14 +33,14 @@
 		while($record = $stmt->fetch(PDO::FETCH_ASSOC)){
 				
 			$bidId = $record['BidId'];
-			$temp->setVariable("l_id", "<a href=\"listingdetail.php?id=".strval($record['ListingId'])."\">View Listing</a>");
+			$temp->setVariable("l_id", "<a class=\"default-link-btn\" href=\"listingdetail.php?id=".strval($record['ListingId'])."\">View Listing</a>");
 			$temp->setVariable("l_end", strval($record['ListingEndDate'])); 
 			$temp->setVariable("i_name", strval($record['ItemName']));
 			$temp->setVariable("b_amt", strval($record['BidValue']));
 			$stat = intval($record['BidStatus']);
 	
 			if($stat == Bid::STATUS_ACTIVE){
-				$temp->setVariable("b_status", "<a href=\"p_delBid.php?id=".$bidId."\">Delete Bid</a>");
+				$temp->setVariable("b_status", "<a class=\"default-link-btn red-variant\" href=\"p_delBid.php?id=".$bidId."\">Delete Bid</a>");
 			}
 			else{
 				$temp->setVariable("b_status", "Deleted");

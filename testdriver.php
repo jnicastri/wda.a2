@@ -2,7 +2,7 @@
 	require_once("includes/requirebundle.php");
 	
 	if(isset($_POST["submit"])) {
-		echo "here";
+	
 		$fn = pathinfo($_FILES['imgUpload']['name']);
 		$ext = $fn['extension'];
 		

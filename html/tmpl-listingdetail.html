@@ -9,53 +9,55 @@
 	<body>
 		<div id="content-container">
 			<!-- $include html/master-header.html -->
-			<section>
-				<div>
-					<h2>${i_title}</h2>
+			<section id="main-content">
+				<h2>${i_title}</h2>
+				<section id="listing-detail">
 					<table>
 						<tr>
-							<td>Listed Date:</td>
+							<td><label>Listed Date:<label></td>
 							<td>${l_start}</td>
 						</tr>
 						<tr>
-							<td>End Date:</td>
+							<td><label>End Date:<label></td>
 							<td>${l_end}</td>
 						</tr>
 						<tr>
-							<td>Item Category:</td>
+							<td><label>Item Category:<label></td>
 							<td>${i_cat}</td>
 						</tr>
 						<tr>
-							<td>Shipping Amount:</td>
+							<td><label>Shipping Amount:<label></td>
 							<td>${l_shipamt}</td>
 						</tr>
 						<tr>
-							<td>Min. Bid Amount:</td>
+							<td><label>Min. Bid Amount:<label></td>
 							<td>${l_bidamt}</td>
 						</tr>
 						<tr>
-							<td>Current Top Bid:</td>
+							<td><label>Current Top Bid:<label></td>
 							<td>${l_top}</td>
 						</tr>
 						<!-- $BeginBlock BidBtn -->
 						<tr>
-							<td>Action:</td>
-							<td><a href="placebid.php?id=${itemBidId}">Place Bid</a></td>
+							<td><label>Action:<label></td>
+							<td><a class="default-link-btn" href="placebid.php?id=${itemBidId}">Place Bid</a></td>
 						</tr>
 						<!-- $EndBlock BidBtn -->
 					</table>
 				</section>
 				<!-- $BeginBlock PrimaryImage -->
-				<section>
-					<div>
+				<section id="listing-image">
+					<div id="img-container">
 						<img src="${primaryimg}" alt="primary image" />
 					</div>
 				</section>
+				<div class="clearall"></div>
 				<!-- $EndBlock PrimaryImage -->
-				<section>
-					${i_desc}<br />
+				<section id="listing-desc">
+					<h3>Item Description:</h3>
+					<div id="listing-desc-text">${i_desc}</div><br />
 				</section>
-			</div>
+			</section>
 			<!-- $include html/master-footer.html -->
 		</div>
 	</body>

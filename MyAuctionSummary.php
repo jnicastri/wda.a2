@@ -41,12 +41,12 @@
 					$topBid = $listItem->GetTopBid();
 					$temp->setVariable("l_listdate",$listItem->ListedDate);
 					$temp->setVariable("l_enddate", $listItem->EndDate);
-					$temp->setVariable("l_listitemid", "<a href=\"listingdetail.php?id=".strval($listItem->Id)."\">View Listing</a>");
+					$temp->setVariable("l_listitemid", "<a class=\"default-link-btn\" href=\"listingdetail.php?id=".strval($listItem->Id)."\">View Listing</a>");
 					$temp->setVariable("l_resamt", "$".strval(number_format($listItem->ReserveAmount,2)));
 					$temp->setVariable("l_shipamt", "$".strval(number_format($listItem->ShippingAmount,2)));
 					is_null($topBid) ? 
 					$temp->setVariable("l_topbid", "No Bids") :
-					$temp->setVariable("l_topbid", strval($topBid->BidValue));
+					$temp->setVariable("l_topbid", "$".strval($topBid->BidValue));
 					
 					$temp->addBlock("listingItem");
 				}
@@ -63,7 +63,7 @@
 					$temp->setVariable("p_sellerid", strval($listItem->SellingUserId));
 					$temp->setVariable("p_transdate", $listItem->TransactionDate);
 					$temp->setVariable("p_saleamt", "$".strval(number_format($listItem->SaleAmount,2)));
-					$temp->setVariable("p_listingid", "<a href=\"listingdetail.php?id=".$listItem->SoldListing->Id."\">View Listing</a>");
+					$temp->setVariable("p_listingid", "<a class=\"default-link-btn\" href=\"listingdetail.php?id=".$listItem->SoldListing->Id."\">View Listing</a>");
 					
 					$temp->addBlock("purchaseItem");
 				}
@@ -80,7 +80,7 @@
 					$temp->setVariable("s_buyerid", strval($listItem->PurchasingUserId));
 					$temp->setVariable("s_transdate", $listItem->TransactionDate);
 					$temp->setVariable("s_saleamt", "$".strval(number_format($listItem->SaleAmount,2)));
-					$temp->setVariable("s_listingid", "<a href=\"listingdetail.php?id=".strval($listItem->SoldListing->Id)."\">View Listing</a>");
+					$temp->setVariable("s_listingid", "<a class=\"default-link-btn\" href=\"listingdetail.php?id=".strval($listItem->SoldListing->Id)."\">View Listing</a>");
 					$temp->setVariable("s_name", $listItem->ShippingFirstName." ".$listItem->ShippingLastName);
 					$temp->addBlock("salesItem");
 				}
