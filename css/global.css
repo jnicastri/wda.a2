@@ -243,3 +243,8 @@ fieldset{
 #listing-desc-text{
     padding: 0 7px 20px 7px; 
 }
+
+#new-listing-cont{
+    float: right;   
+    margin-right: 10px;
+}
