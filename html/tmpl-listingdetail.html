@@ -1,57 +1,62 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/global.css" />
 		<title>${i_title}: Auction House Online</title>
+		
 	</head>
 	<body>
-		<!-- $include html/master-header.html -->
-		<section>
-			<div>
-				<h2>${i_title}</h2>
-				<table>
-					<tr>
-						<td>Listed Date:</td>
-						<td>${l_start}</td>
-					</tr>
-					<tr>
-						<td>End Date:</td>
-						<td>${l_end}</td>
-					</tr>
-					<tr>
-						<td>Item Category:</td>
-						<td>${i_cat}</td>
-					</tr>
-					<tr>
-						<td>Shipping Amount:</td>
-						<td>${l_shipamt}</td>
-					</tr>
-					<tr>
-						<td>Min. Bid Amount:</td>
-						<td>${l_bidamt}</td>
-					</tr>
-					<tr>
-						<td>Current Top Bid:</td>
-						<td>${l_top}</td>
-					</tr>
-					<!-- $BeginBlock BidBtn -->
-					<tr>
-						<td>Action:</td>
-						<td><a href="placebid.php?id=${itemBidId}">Place Bid</a></td>
-					</tr>
-					<!-- $EndBlock BidBtn -->
-				</table>
-			</section>
-			<!-- $BeginBlock PrimaryImage -->
+		<div id="content-container">
+			<!-- $include html/master-header.html -->
 			<section>
 				<div>
-					<img src="${primaryimg}" alt="primary image" />
-				</div>
-			</section>
-			<!-- $EndBlock PrimaryImage -->
-			<section>
-				${i_desc}<br />
-			</section>
+					<h2>${i_title}</h2>
+					<table>
+						<tr>
+							<td>Listed Date:</td>
+							<td>${l_start}</td>
+						</tr>
+						<tr>
+							<td>End Date:</td>
+							<td>${l_end}</td>
+						</tr>
+						<tr>
+							<td>Item Category:</td>
+							<td>${i_cat}</td>
+						</tr>
+						<tr>
+							<td>Shipping Amount:</td>
+							<td>${l_shipamt}</td>
+						</tr>
+						<tr>
+							<td>Min. Bid Amount:</td>
+							<td>${l_bidamt}</td>
+						</tr>
+						<tr>
+							<td>Current Top Bid:</td>
+							<td>${l_top}</td>
+						</tr>
+						<!-- $BeginBlock BidBtn -->
+						<tr>
+							<td>Action:</td>
+							<td><a href="placebid.php?id=${itemBidId}">Place Bid</a></td>
+						</tr>
+						<!-- $EndBlock BidBtn -->
+					</table>
+				</section>
+				<!-- $BeginBlock PrimaryImage -->
+				<section>
+					<div>
+						<img src="${primaryimg}" alt="primary image" />
+					</div>
+				</section>
+				<!-- $EndBlock PrimaryImage -->
+				<section>
+					${i_desc}<br />
+				</section>
+			</div>
+			<!-- $include html/master-footer.html -->
 		</div>
-		<!-- $include html/master-footer.html -->
 	</body>
 </html>

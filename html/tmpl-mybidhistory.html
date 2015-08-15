@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/global.css" />
 		<title>My Bidding History: Auction House Online</title>
 	</head>
 	<body>
-		<!-- $include html/master-header.html -->
-		<div>
-			<!-- $BeginBlock tableHeader -->
-			<table>
-				<tr>
-					<th>Listing Link</th>
-					<th>Listing Ending</th>
-					<th>Item Name</th>
-					<th>Bid Amount</th>
-					<th>Action</th>
-				</tr>
-			<!-- $EndBlock tableHeader -->
-			<!-- $BeginBlock tableRow -->
-				<tr>
-					<td>${l_id}</td>
-					<td>${l_end}</td>
-					<td>${i_name}</td>
-					<td>${b_amt}</td>
-					<td>${b_status}</td>
-				</tr>
-			<!-- $EndBlock tableRow -->
-			<!-- $BeginBlock tableFooter -->
-			</table>
-			<!-- $EndBlock tableFooter -->
+		<div id="content-container">
+			<!-- $include html/master-header.html -->
+			<div>
+				<!-- $BeginBlock tableHeader -->
+				<table>
+					<tr>
+						<th>Listing Link</th>
+						<th>Listing Ending</th>
+						<th>Item Name</th>
+						<th>Bid Amount</th>
+						<th>Action</th>
+					</tr>
+				<!-- $EndBlock tableHeader -->
+				<!-- $BeginBlock tableRow -->
+					<tr>
+						<td>${l_id}</td>
+						<td>${l_end}</td>
+						<td>${i_name}</td>
+						<td>${b_amt}</td>
+						<td>${b_status}</td>
+					</tr>
+				<!-- $EndBlock tableRow -->
+				<!-- $BeginBlock tableFooter -->
+				</table>
+				<!-- $EndBlock tableFooter -->
+			</div>
+			<!-- $include html/master-footer.html -->
 		</div>
-		<!-- $include html/master-footer.html -->
 	</body>
 </html>

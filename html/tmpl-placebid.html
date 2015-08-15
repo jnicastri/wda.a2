@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/global.css" />
 		<title>${i_title}: Auction House Online</title>
 		<script type="text/javascript">
 			function clientVal(){
@@ -21,40 +23,42 @@
 		</script>
 	</head>
 	<body>
-		<!-- $include html/master-header.html -->
-		<section>
-			<div>
-				<h2>${i_title}</h2>
-				<table>
-					<tr>
-						<td>End Date:</td>
-						<td>${l_end}</td>
-					</tr>
-					<tr>
-						<td>Min. Bid Amount:</td>
-						<td>${l_bidamt}</td>
-					</tr>
-					<tr>
-						<td>Current Top Bid:</td>
-						<td>${l_top}</td>
-					</tr>
-				</table>
-				<form name="bidForm" onsubmit="return clientVal()" action="p_placebid.php" method="POST">
+		<div id="content-container">
+			<!-- $include html/master-header.html -->
+			<section>
+				<div>
+					<h2>${i_title}</h2>
 					<table>
 						<tr>
-							<td>Enter your bid amount:</td>
-							<td><input type="text" name="bidAmt" /></td>
-							<td><span id="bidErrorMsg"></span></td>
+							<td>End Date:</td>
+							<td>${l_end}</td>
 						</tr>
 						<tr>
-							<td colspan="3"><input type="submit" value="Bid" />
-							<input type="hidden" name="listingId" value="${listingIdHf}" />
-							</td>
+							<td>Min. Bid Amount:</td>
+							<td>${l_bidamt}</td>
 						</tr>
-					</table>					
-				</form>
-			</div>
-		</section>
-		<!-- $include html/master-footer.html -->
+						<tr>
+							<td>Current Top Bid:</td>
+							<td>${l_top}</td>
+						</tr>
+					</table>
+					<form name="bidForm" onsubmit="return clientVal()" action="p_placebid.php" method="POST">
+						<table>
+							<tr>
+								<td>Enter your bid amount:</td>
+								<td><input type="text" name="bidAmt" /></td>
+								<td><span id="bidErrorMsg"></span></td>
+							</tr>
+							<tr>
+								<td colspan="3"><input type="submit" value="Bid" />
+								<input type="hidden" name="listingId" value="${listingIdHf}" />
+								</td>
+							</tr>
+						</table>					
+					</form>
+				</div>
+			</section>
+			<!-- $include html/master-footer.html -->
+		</div>
 	</body>
 </html>
