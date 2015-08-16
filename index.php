@@ -7,7 +7,8 @@
 	
 	if(!$load)
 		die ("Loading template has failed!");
-		
+	
+	is_null($_SESSION[SESSION_USER_KEY]) ? $temp->addBlock("loginLnk") : $temp->addBlock("logoutLnk");	
 	loadPage($temp);
 	$temp->generateOutput();
 	

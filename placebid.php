@@ -11,6 +11,8 @@
 		if(!$load)
 			die ("Loading template has failed!");
 		
+		$temp->addBlock("logoutLnk");
+		
 		if(is_null($listId)){
 			header("Location: index.php");
 			exit();

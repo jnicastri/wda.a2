@@ -8,9 +8,18 @@
 		<div id="title-search-cont">
 			<div>Search the site</div>
 			<form action="search.php" method="get">
-				<input placeholder="Search for Auction Items" class="default-input-text" name="q" type="text" />
+				<input style="width:500px;" placeholder="Search for Auction Items" class="default-input-text" name="q" type="text" />
 				&nbsp;&nbsp;<input class="default-input-btn" type="submit" value="Search" />
 			</form>
+			
+			<div style="margin-top:20px;float:right;">
+				<!-- $BeginBlock loginLnk -->
+				<a class="default-link-btn" href="login.php">Login</a>
+				<!-- $EndBlock loginLnk -->
+				<!-- $BeginBlock logoutLnk -->
+				<a class="default-link-btn" href="p_logout.php">Logout</a>
+				<!-- $EndBlock logoutLnk -->
+			</div>
 		</div>
 		<div class="clearall"></div>
 	</div>

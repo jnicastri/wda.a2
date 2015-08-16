@@ -9,6 +9,8 @@
 	if(!$load)
 		die ("Loading template has failed!");
 	
+	is_null($_SESSION[SESSION_USER_KEY]) ? $temp->addBlock("loginLnk") : $temp->addBlock("logoutLnk");
+	
 	if(is_null($listId))
 		header("Location: index.php"); 	
 	

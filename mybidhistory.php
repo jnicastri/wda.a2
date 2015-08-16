@@ -8,6 +8,8 @@
 		
 		if(!$load)
 			die ("Loading template has failed!");
+		
+		$temp->addBlock("logoutLnk");
 			
 		loadPage($temp);
 		$temp->generateOutput();

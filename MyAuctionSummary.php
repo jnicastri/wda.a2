@@ -7,6 +7,8 @@
 	if(!$load)
 		die ("Loading template has failed!");
 	
+	$temp->addBlock("logoutLnk");
+	
 	if(!isset($_SESSION[SESSION_USER_KEY]))
 		header("Location: login.php");
 	else{
