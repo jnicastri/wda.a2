@@ -14,4 +14,4 @@ BEGIN
 		(listingId, biduserId, bidVal, stat);
 		
 	SELECT LAST_INSERT_ID() INTO id;
-END$$
+END $$

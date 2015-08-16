@@ -29,7 +29,6 @@
 			}
 			
 		$item = Item::GetNew($itemName, $itemDesc, intval($itemCatId));
-		
 		if(is_null($item)){
 			header("Location: newlisting.php?error=1");
 			exit();
@@ -68,6 +67,6 @@
 			header("Location: listingdetail.php?id=".$listing->Id);
 			exit();
 		}
-	}	
+	}
 	
 ?>

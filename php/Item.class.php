@@ -67,6 +67,8 @@
 			
 				$stmt->execute();
 				
+				//print_r($stmt->errorInfo());
+				
 				$id = $con->query("SELECT @id")->fetchAll(PDO::FETCH_ASSOC);
 				$this->Id = intval($id[0]["@id"]);
 				$dc = $con->query("SELECT @createdDate")->fetchAll(PDO::FETCH_ASSOC);

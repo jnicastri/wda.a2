@@ -42,6 +42,10 @@
 		return !preg_match($emailPattern, $email) ? false : true;
 	}
 	
-	
+	function removeExcessSpaces($string){
+		
+		return trim(preg_replace('/\s+/', ' ', $string));
+		
+	}
 	
 ?>
