@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/global.css" />
+		<title>Auction House Online</title>
+	</head>
+	<body>
+		<div id="content-container">
+			<!-- $include html/master-header.html -->
+			<section id="main-content">
+				<h2>Welcome to Auction House Online</h2>
+				<fieldset>
+					<legend><h6>Available Auction Items</h6></legend>
+				<!-- $BeginBlock tableHeader -->
+				<table class="res-table">
+				<!-- $EndBlock tableHeader -->
+				<!-- $BeginBlock tableRow -->
+					<tr>
+						<td>
+							<div class="results-item">
+								<div class="result-left">
+									<table>
+										<tr>
+											<td colspan="2"><h3>${i_name}</h3></td>
+										</tr>
+										<tr>
+											<td><label>Category:</label></td>
+											<td>${c_name}</td>
+										</tr>
+										<tr>
+											<td><label>End Date:</label></td>
+											<td>${l_end}</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="padding-top: 25px;">
+												<a class="default-link-btn" style="padding:8px 15px" href="listingdetail.php?id=${l_id}">View Details</a>
+											</td>
+										</tr>
+									</table>	
+								</div>
+								<div class="result-right">
+									<div class="results-image-cont">
+									<!-- $BeginBlock ListingImage -->
+										<img src="${l_mid}" alt="Primary Image" />
+									<!-- $EndBlock ListingImage -->
+									<!-- $BeginBlock NoImage -->
+										<img src="$contentimages/noimage.jpg" alt="No Listing Image" />
+									<!-- $EndBlock NoImage -->	
+									</div>
+								</div>	
+								<div class="clearall"></div>
+							</div>
+						</td>
+					</tr>
+				<!-- $EndBlock tableRow -->
+				<!-- $BeginBlock tableFooter -->
+				</table>
+				<!-- $EndBlock tableFooter -->
+				</fieldset>
+			</section>
+			<!-- $include html/master-footer.html -->
+		</div>
+	</body>
+</html>
