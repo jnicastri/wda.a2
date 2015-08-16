@@ -24,7 +24,6 @@
 		isNullOrEmpty($email) ||
 		isNullOrEmpty($uname) ||
 		isNullOrEmpty($add1) ||
-		isNullOrEmpty($add2) ||
 		isNullOrEmpty($addSub) ||
 		isNullOrEmpty($addState) ||
 		isNullOrEmpty($addZip) ||
@@ -47,6 +46,9 @@
 	}
 	
 	$password = password_hash($p1, PASSWORD_DEFAULT);
+	
+	if(is_null($add2))
+		$add2 = "";
 	
 	$address = new AddressStruct();
 	$address->Line1 = $add1;

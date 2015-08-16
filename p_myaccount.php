@@ -21,7 +21,6 @@
 			isNullOrEmpty($email) ||
 			isNullOrEmpty($uname) ||
 			isNullOrEmpty($add1) ||
-			isNullOrEmpty($add2) ||
 			isNullOrEmpty($addSub) ||
 			isNullOrEmpty($addState) ||
 			isNullOrEmpty($addZip)){
@@ -42,6 +41,10 @@
 		$user->Email = $email;
 		$user->UserName = $uname;
 		$user->BillingAddress->Line1 = $add1;
+		
+		if(is_null($add2))
+			$add2 = "";
+		
 		$user->BillingAddress->Line2 = $add2;
 		$user->BillingAddress->Suburb = $addSub;
 		$user->BillingAddress->State = $addState;
