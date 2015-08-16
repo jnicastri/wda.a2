@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/global.css" />
+		<title>My Purchases: Auction House Online</title>
+	</head>
+	<body>
+		<div id="content-container">
+			<!-- $include html/master-header.html -->
+			<section id="main-content">
+				<div>
+					<h2>My Purchases</h2>
+					<fieldset>
+						<legend><h6>All Purchases</h6></legend>
+						<!-- $BeginBlock purchaseListHead -->
+						<table class="default-table">
+							<tr>
+								<th>Seller</th>
+								<th>Transaction Date</th>
+								<th>Sale Amount</th>
+								<th>Listing</th>
+							</tr>
+							<!-- $EndBlock purchaseListHead -->
+							<!-- $BeginBlock purchaseItem -->
+							<tr>
+								<td>${p_sellerid}</td>
+								<td>${p_transdate}</td>
+								<td>${p_saleamt}</td>
+								<td>${p_listingid}</td>
+							</tr>
+							<!-- $EndBlock purchaseItem -->
+						<!-- $BeginBlock purchaseListFooter -->	
+						</table>
+						<!-- $EndBlock purchaseListFooter -->
+						<!-- $BeginBlock purchaseNoResults -->
+						<div>You have not made any purchases yet.</div>
+						<!-- $EndBlock purchaseNoResults -->
+					</fieldset>
+				</div>
+			</section>
+			<!-- $include html/master-footer.html -->
+		</div>
+	</body>
+</html>

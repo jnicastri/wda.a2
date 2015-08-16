@@ -30,30 +30,34 @@
 		
 		$temp->setVariable("s_query", $sq);
 		
-		$temp->addBlock("tableHeader");
+		if($stmt->rowCount() > 0){
+			$temp->addBlock("tableHeader");
 		
-		while($record = $stmt->fetch(PDO::FETCH_ASSOC)){
-			
-			$temp->setVariable("l_id", $record['ListingId']);
-			$temp->setVariable("l_end", strval($record['EndDate'])); 
-			$temp->setVariable("i_name", $record['ItemName']);
-			$temp->setVariable("c_name", $record['CategoryName']);
-			
-			$image = $record['MediaFileName'];
-			
-			if(!is_null($image)){
-				$temp->setVariable("l_mid", MEDIA_ITEM_PATH . $image);
-				$temp->addBlock("ListingImage");
+			while($record = $stmt->fetch(PDO::FETCH_ASSOC)){
+				
+				$temp->setVariable("l_id", $record['ListingId']);
+				$temp->setVariable("l_end", strval($record['EndDate'])); 
+				$temp->setVariable("i_name", $record['ItemName']);
+				$temp->setVariable("c_name", $record['CategoryName']);
+				
+				$image = $record['MediaFileName'];
+				
+				if(!is_null($image)){
+					$temp->setVariable("l_mid", MEDIA_ITEM_PATH . $image);
+					$temp->addBlock("ListingImage");
+				}
+				else{
+					$temp->addBlock("NoImage");
+				}
+		
+				$temp->addBlock("tableRow");
 			}
-			else{
-				$temp->addBlock("NoImage");
-			}
-	
-			$temp->addBlock("tableRow");
+			
+			$temp->addBlock("tableFooter");
+		}	
+		else{
+			$temp->addBlock("NoResults");
 		}
-		
-		$temp->addBlock("tableFooter");
-			
 	}
 	
 ?>

@@ -18,7 +18,7 @@
 		
 		$userId = $_SESSION[SESSION_USER_KEY]->Id;
 		
-		$myListings = Listing::LoadByUserId($userId, Listing::STATUS_ANY);
+		$myListings = Listing::LoadByUserId($userId, Listing::STATUS_ACTIVE);
 		$myPurchases = OrderTransaction::LoadByBuyer($userId);
 		$mySales = OrderTransaction::LoadBySeller($userId);
 		

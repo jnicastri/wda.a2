@@ -28,28 +28,34 @@
 		$stmt->bindValue(1, intval($_SESSION[SESSION_USER_KEY]->Id), PDO::PARAM_INT);
 		$stmt->execute();
 		
-		$temp->addBlock("tableHeader");
+		if($stmt->rowCount() > 0){
 		
-		while($record = $stmt->fetch(PDO::FETCH_ASSOC)){
-				
-			$bidId = $record['BidId'];
-			$temp->setVariable("l_id", "<a class=\"default-link-btn\" href=\"listingdetail.php?id=".strval($record['ListingId'])."\">View Listing</a>");
-			$temp->setVariable("l_end", strval($record['ListingEndDate'])); 
-			$temp->setVariable("i_name", strval($record['ItemName']));
-			$temp->setVariable("b_amt", strval($record['BidValue']));
-			$stat = intval($record['BidStatus']);
-	
-			if($stat == Bid::STATUS_ACTIVE){
-				$temp->setVariable("b_status", "<a class=\"default-link-btn red-variant\" href=\"p_delBid.php?id=".$bidId."\">Delete Bid</a>");
+			$temp->addBlock("tableHeader");
+		
+			while($record = $stmt->fetch(PDO::FETCH_ASSOC)){
+					
+				$bidId = $record['BidId'];
+				$temp->setVariable("l_id", "<a class=\"default-link-btn\" href=\"listingdetail.php?id=".strval($record['ListingId'])."\">View Listing</a>");
+				$temp->setVariable("l_end", strval($record['ListingEndDate'])); 
+				$temp->setVariable("i_name", strval($record['ItemName']));
+				$temp->setVariable("b_amt", strval($record['BidValue']));
+				$stat = intval($record['BidStatus']);
+		
+				if($stat == Bid::STATUS_ACTIVE){
+					$temp->setVariable("b_status", "<a class=\"default-link-btn red-variant\" href=\"p_delBid.php?id=".$bidId."\">Delete Bid</a>");
+				}
+				else{
+					$temp->setVariable("b_status", "Deleted");
+				} 
+		
+				$temp->addBlock("tableRow");
 			}
-			else{
-				$temp->setVariable("b_status", "Deleted");
-			} 
-	
-			$temp->addBlock("tableRow");
+			
+			$temp->addBlock("tableFooter");
 		}
-		
-		$temp->addBlock("tableFooter");
+		else{
+			$temp->addBlock("noResults");
+		}
 	}
 	
 ?>

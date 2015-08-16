@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/global.css" />
+		<title>My Listings: Auction House Online</title>
+	</head>
+	<body>
+		<div id="content-container">
+			<!-- $include html/master-header.html -->
+			<section id="main-content">
+				<div>
+					<h2>My Listings</h2>
+					<div id="new-listing-cont">
+						<a class="default-link-btn" style="padding:8px 15px" href="newlisting.php"><b>+</b> Add New Listing</a>
+					</div>
+						<div class="clearall"></div>
+					<fieldset>
+						
+						<legend><h6>All Listings - Past, Active &amp; Scheduled</h6></legend>
+						
+						<!-- $BeginBlock listingsListHead -->
+						<table class="default-table">
+							<tr>
+								<th>List Date</th>
+								<th>End Date</th>
+								<th>Listing</th>
+								<th>Reserve Amount</th>
+								<th>Shipping Amount</th>
+								<th>Top Bid</th>
+							</tr>
+							<!-- $EndBlock listingsListHead -->
+							<!-- $BeginBlock listingItem -->
+							<tr>
+								<td>${l_listdate}</td>
+								<td>${l_enddate}</td>
+								<td>${l_listitemid}</td>
+								<td>${l_resamt}</td>
+								<td>${l_shipamt}</td>
+								<td>${l_topbid}</td>
+							</tr>
+							<!-- $EndBlock listingItem -->	
+						<!-- $BeginBlock listingsListFooter -->
+						</table>
+						<!-- $EndBlock listingsListFooter -->
+						<!-- $BeginBlock listingsNoResults -->
+						<div>There are no listings to show.</div>
+						<!-- $EndBlock listingsNoResults -->
+					</fieldset>
+				</div>
+			</section>
+			<!-- $include html/master-footer.html -->
+		</div>
+	</body>
+</html>
