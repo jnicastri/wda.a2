@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/global.css" />
+		<link href="scripts/jquery-ui/jquery-ui.css" rel="stylesheet">
+		<script src="scripts/jquery-ui/external/jquery/jquery.js"></script>
+		<script src="scripts/jquery-ui/jquery-ui.js"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.min.js"></script>
+		<title>My Account: Auction House Online</title>
+		<script>
+			
+			jQuery.validator.setDefaults({
+			  debug: false,
+			  success: "valid"
+			});
+			
+			$(document).ready(function(){
+				$("#myaccountFrm").validate({
+				  rules: {
+					firstNameTb: "required",
+					lastNameTb: "required",
+					nicknameTb: "required",
+					add1Tb: "required",
+					add2Tb: "required",
+					addSubTb: "required",
+					addStateTb: "required",
+					addZipTb: "required",
+					emailTb: {
+						required: true,
+						email: true
+					}
+				},
+				  messages: {
+				  	firstNameTb: "Required field",
+					lastNameTb: "Required field",
+					emailTb: "Required field",
+					nicknameTb: "Required field",
+					add1Tb: "Required field",
+					add2Tb: "Required field",
+					addSubTb: "Required field",
+					addStateTb: "Required field",
+					addZipTb: "Required field"
+				    } 
+				});
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div id="content-container">
+			<!-- $include html/master-header.html -->
+			<section id="main-content">
+				<h2>My Account</h2>
+				<hr />
+				<!-- $BeginBlock UpdateError -->
+				<div class="default-error">An error has occured. Please try again.</div>
+				<!-- $EndBlock UpdateError -->
+				<form id="myaccountFrm" name="myaccountFrm" method="POST" action="p_myaccount.php">
+					<fieldset>
+						<legend><h6>User Details</h6></legend>
+						<table class="form-tbl">
+							<tr>
+								<td><label>First Name:</label></td>
+								<td><input class="default-input-text" id="firstNameTb" name="firstNameTb" type="text" value=${u_fname} /></td>
+								<td><label for="firstNameTb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Last Name:</label></td>
+								<td><input class="default-input-text" id="lastNameTb" name="lastNameTb" type="text" value=${u_lname} /></td>
+								<td><label for="lastNameTb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Email Address</label></td>
+								<td><input class="default-input-text" id="emailTb" name="emailTb" type="text" value=${u_email} /></td>
+								<td><label for="emailTb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Nickname:</label></td>
+								<td><input class="default-input-text" id="nicknameTb" name="nicknameTb" type="text" value=${u_nname} /></td>
+								<td><label for="nicknameTb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Address Line 1</label></td>
+								<td><input class="default-input-text" id="add1Tb" name="add1Tb" type="text" value=${u_add1} /></td>
+								<td><label for="add1Tb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Address Line 2</label></td>
+								<td><input class="default-input-text" id="add2Tb" name="add2Tb" type="text" value=${u_add2} /></td>
+								<td><label for="add2Tb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Suburb/City</label></td>
+								<td><input class="default-input-text" id="addSubTb" name="addSubTb" type="text" value=${u_addsub} /></td>
+								<td><label for="addSubTb"></label></td>
+							</tr>
+							<tr>
+								<td><label>State</label></td>
+								<td><input class="default-input-text" id="addStateTb" name="addStateTb" type="text" value=${u_addstate} /></td>
+								<td><label for="addStateTb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Postcode</label></td>
+								<td><input class="default-input-text" id="addZipTb" name="addZipTb" type="text" value=${u_addzip} /></td>
+								<td><label for="addZipTb"></label></td>
+							</tr>
+						</table>
+					</fieldset>
+					<div >
+						<input class="default-input-btn" type="submit" value="Update Details" />
+						<br />&nbsp;
+					</div>
+				</form>
+			</section>
+			<!-- $include html/master-footer.html -->
+		</div>
+	</body>
+</html>

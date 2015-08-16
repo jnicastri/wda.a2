@@ -247,6 +247,7 @@ fieldset{
 #new-listing-cont{
     float: right;   
     margin-right: 10px;
+    margin-top: 10px;
 }
 
 .res-table{

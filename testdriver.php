@@ -1,5 +1,5 @@
 <?php
-	require_once("includes/requirebundle.php");
+	/*require_once("includes/requirebundle.php");
 	
 	if(isset($_POST["submit"])) {
 	
@@ -23,15 +23,15 @@
 		
 		$mediaItem->Save();
 	
-	}
+	}*/
 	
-	
+
 	
 	
 
 	
 ?>
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 	<head>
 		
@@ -44,4 +44,4 @@
 			<input type="submit" name="submit" value="go" />
 		</form>
 	</body>
-</html>
+</html>-->

@@ -11,6 +11,9 @@
 		if(!$load)
 			die ("Loading template has failed!");
 		
+		if(isset($_GET['error']))
+			$temp->addBlock("UpdateError");
+		
 		$temp->addBlock("logoutLnk");
 		
 		if(is_null($listId)){

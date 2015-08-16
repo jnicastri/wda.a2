@@ -35,7 +35,7 @@
 			exit();
 		}
 		
-		// Handing File Upload (if one is provided)
+		// Handling File Upload (if one is provided)
 		if(isset($_FILES['imgUpload'])){
 
 			$fn = pathinfo($_FILES['imgUpload']['name']);

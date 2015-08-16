@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/global.css" />
+		<link href="scripts/jquery-ui/jquery-ui.css" rel="stylesheet">
+		<script src="scripts/jquery-ui/external/jquery/jquery.js"></script>
+		<script src="scripts/jquery-ui/jquery-ui.js"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/additional-methods.min.js"></script>
+		<title>Account Sign Up: Auction House Online</title>
+		<script>
+			
+			jQuery.validator.setDefaults({
+			  debug: false,
+			  success: "valid"
+			});
+			
+			$(document).ready(function(){
+				$("#newaccountFrm").validate({
+				  rules: {
+					firstNameTb: "required",
+					lastNameTb: "required",
+					nicknameTb: "required",
+					add1Tb: "required",
+					add2Tb: "required",
+					addSubTb: "required",
+					addStateTb: "required",
+					addZipTb: "required",
+					pwd1: "required",
+					pwd2: "required",
+					emailTb: {
+						required: true,
+						email: true
+					}
+				},
+				  messages: {
+				  	firstNameTb: "Required field",
+					lastNameTb: "Required field",
+					emailTb: "Required field",
+					nicknameTb: "Required field",
+					add1Tb: "Required field",
+					add2Tb: "Required field",
+					addSubTb: "Required field",
+					addStateTb: "Required field",
+					addZipTb: "Required field",
+					pwd1: "Required field",
+					pwd2: "Required field"
+				    } 
+				});
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div id="content-container">
+			<!-- $include html/master-header.html -->
+			<section id="main-content">
+				<h2>Create a New Account</h2>
+				<hr />
+				<!-- $BeginBlock UpdateError -->
+				<div class="default-error">An error has occured. Please try again.</div>
+				<!-- $EndBlock UpdateError -->
+				<form id="newaccountFrm" name="newaccountFrm" method="POST" action="p_newsignup.php">
+					<fieldset>
+						<legend><h6>Please Enter User Details</h6></legend>
+						<table class="form-tbl">
+							<tr>
+								<td><label>First Name:</label></td>
+								<td><input class="default-input-text" id="firstNameTb" name="firstNameTb" type="text" /></td>
+								<td><label for="firstNameTb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Last Name:</label></td>
+								<td><input class="default-input-text" id="lastNameTb" name="lastNameTb" type="text" /></td>
+								<td><label for="lastNameTb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Email Address</label></td>
+								<td><input class="default-input-text" id="emailTb" name="emailTb" type="text" /></td>
+								<td><label for="emailTb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Nickname:</label></td>
+								<td><input class="default-input-text" id="nicknameTb" name="nicknameTb" type="text" /></td>
+								<td><label for="nicknameTb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Address Line 1</label></td>
+								<td><input class="default-input-text" id="add1Tb" name="add1Tb" type="text" /></td>
+								<td><label for="add1Tb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Address Line 2</label></td>
+								<td><input class="default-input-text" id="add2Tb" name="add2Tb" type="text" /></td>
+								<td><label for="add2Tb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Suburb/City</label></td>
+								<td><input class="default-input-text" id="addSubTb" name="addSubTb" type="text" /></td>
+								<td><label for="addSubTb"></label></td>
+							</tr>
+							<tr>
+								<td><label>State</label></td>
+								<td><input class="default-input-text" id="addStateTb" name="addStateTb" type="text" /></td>
+								<td><label for="addStateTb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Postcode</label></td>
+								<td><input class="default-input-text" id="addZipTb" name="addZipTb" type="text" /></td>
+								<td><label for="addZipTb"></label></td>
+							</tr>
+							<tr>
+								<td><label>Password</label></td>
+								<td><input class="default-input-text" id="pwd1" name="pwd1" type="password" /></td>
+								<td><label for="pwd1"></label></td>
+							</tr>
+							<tr>
+								<td><label>Re-Enter Password</label></td>
+								<td><input class="default-input-text" id="pwd2" name="pwd2" type="password" /></td>
+								<td><label for="pwd2"></label></td>
+							</tr>
+						</table>
+					</fieldset>
+					<div >
+						<input class="default-input-btn" type="submit" value="Create Account" />
+						<br />&nbsp;
+					</div>
+				</form>
+			</section>
+			<!-- $include html/master-footer.html -->
+		</div>
+	</body>
+</html>

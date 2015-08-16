@@ -9,6 +9,9 @@
 		if(!$load)
 			die ("Loading template has failed!");
 		
+		if(isset($_GET['error']))
+			$temp->addBlock("UpdateError");
+		
 		$temp->addBlock("logoutLnk");	
 		loadPage($temp);
 		$temp->generateOutput();
