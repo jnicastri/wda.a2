@@ -34,7 +34,7 @@
 	function bindData($data, $collType, &$temp){
 		
 		if($collType == "listings"){
-			if(is_null($collType))
+			if(is_null($data))
 				$temp->addBlock("listingsNoResults");
 			else{
 				$temp->addBlock("listingsListHead");
@@ -56,7 +56,7 @@
 			}			
 		}
 		else if($collType == "purchases"){
-			if(is_null($collType))
+			if(is_null($data))
 				$temp->addBlock("purchaseNoResults");
 			else{
 				$temp->addBlock("purchaseListHead");
@@ -73,7 +73,7 @@
 			}	
 		}
 		else if($collType == "sales"){
-			if(is_null($collType))
+			if(is_null($data))
 				$temp->addBlock("salesNoResults");
 			else{
 				$temp->addBlock("salesListHead");

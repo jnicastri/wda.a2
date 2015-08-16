@@ -44,6 +44,17 @@
 					addZipTb: "Required field"
 				    } 
 				});
+				
+				$("#pwdFrm").validate({
+					rules: {
+						pwd1: "required",
+						pwd2: "required"
+					},
+					messages: {
+						pwd1: "Required",
+						pwd2: "Required"
+					}
+				});
 			});
 			
 		</script>
@@ -57,6 +68,9 @@
 				<!-- $BeginBlock UpdateError -->
 				<div class="default-error">An error has occured. Please try again.</div>
 				<!-- $EndBlock UpdateError -->
+				<!-- $BeginBlock SuccessPh -->
+				<div class="default-success">Your update has been successfully committed.</div>
+				<!-- $EndBlock SuccessPh -->
 				<form id="myaccountFrm" name="myaccountFrm" method="POST" action="p_myaccount.php">
 					<fieldset>
 						<legend><h6>User Details</h6></legend>
@@ -113,6 +127,28 @@
 						<br />&nbsp;
 					</div>
 				</form>
+				<hr />
+				<fieldset>
+					<legend><h6>Change your Password</h6></legend>
+					<form action="p_updatepwd.php" method="POST" name="pwdFrm" id="pwdFrm">
+						<table class="form-tbl">
+							<tr>
+								<td><label>New Password:</label></td>
+								<td><input class="default-input-text" id="pwd1" name="pwd1" type="password" /></td>
+								<td><label for="pwd1"></label></td>
+							</tr>
+							<tr>
+								<td><label>Re-Enter Password:</label></td>
+								<td><input class="default-input-text" id="pwd2" name="pwd2" type="password" /></td>
+								<td><label for="pwd2"></label></td>
+							</tr>
+						</table>
+						<div>
+							<input class="default-input-btn" type="submit" value="Change Password" />
+							<br />&nbsp;
+						</div>
+					</form>
+				</fieldset>
 			</section>
 			<!-- $include html/master-footer.html -->
 		</div>

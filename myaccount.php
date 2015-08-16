@@ -11,6 +11,8 @@
 		
 		if(isset($_GET['error']))
 			$temp->addBlock("UpdateError");
+		else if(isset($_GET['success']))
+			$temp->addBlock("SuccessPh");
 		
 		$temp->addBlock("logoutLnk");	
 		loadPage($temp);

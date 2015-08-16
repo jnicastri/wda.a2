@@ -52,7 +52,7 @@
 		
 		// Replace Logged in user instance
 		$_SESSION[SESSION_USER_KEY] = $user;
-		header("Location: MyAuctionSummary.php");
+		header("Location: myaccount.php?success=1");
 	}	
 	
 ?>
