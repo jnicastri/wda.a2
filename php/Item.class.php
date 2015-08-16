@@ -23,7 +23,7 @@
 			
 			$newItem->Name = $name;
 			$newItem->LongDescription = $desc;
-			$newItem->Category = Category::LoadById($catId);
+			$newItem->Category = Category::LoadById(intval($catId));
 			
 			$newItem->Save();
 			
@@ -36,7 +36,7 @@
 			$con = new PDO($conStr, DB_USER, DB_PWD);
 			$stmt = $con->prepare('CALL Item_Load(?)');
 			
-			$stmt->bindValue(1, $id, PDO::PARAM_INT);
+			$stmt->bindValue(1, intval($id, PDO::PARAM_INT));
 			$stmt->execute();
 			
 			$record = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -47,9 +47,16 @@
 			$this->DateCreated = $record['DateCreated'];
 			
 			$this->Category = new Category();
-			$this->Category->Id = intval($record['CatId']);
-			$this->Category->Name = $record['CatName'];
-			$this->Category->Description = $record['CatDesc'];
+			
+			if(intval($record['CatId']) != 0){
+				
+				$this->Category->Id = intval($record['CatId']);
+				$this->Category->Name = $record['CatName'];
+				$this->Category->Description = $record['CatDesc'];
+			}
+			else{
+				$this->Category->Name = "Not Set";
+			}
 		}
 	
 		function Save(){
@@ -78,7 +85,7 @@
 				
 				$stmt = $con->prepare('CALL Item_Update(?,?,?,?)');
 				
-				$stmt->bindValue(1, $this->Id, PDO::PARAM_INT);
+				$stmt->bindValue(1, intval($this->Id), PDO::PARAM_INT);
 				$stmt->bindValue(2, $this->Name, PDO::PARAM_STR);
 				$stmt->bindValue(3, $this->LongDescription, PDO::PARAM_STR);
 				$stmt->bindValue(4, $this->Category->Id, PDO::PARAM_INT);

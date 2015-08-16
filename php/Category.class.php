@@ -11,7 +11,7 @@
 		function __construct(){ }
 		
 		static function LoadById($id){
-			$loadcat = new User();
+			$loadcat = new Category();
 			$loadcat->Load($id);
 			return $loadcat;
 		}
@@ -42,7 +42,7 @@
 			$con = new PDO($conStr, DB_USER, DB_PWD);
 			$stmt = $con->prepare('CALL Category_Load(?)');	
 			
-			$stmt->bindValue(1, $id, PDO::PARAM_INT);
+			$stmt->bindValue(1, intval($id), PDO::PARAM_INT);
 			$stmt->execute();
 			
 			$record = $stmt->fetch(PDO::FETCH_ASSOC);
