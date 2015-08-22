@@ -13,6 +13,7 @@
 		
 		function __construct(){ }
 		
+		// Commits a new bid to the DB
 		static function GetNew($listingId, $userId, $bidValue){
 			
 			$newBid = new Bid();
@@ -26,6 +27,7 @@
 			return $newBid;
 		}
 		
+		// Saves current instance to the DB
 		function Save(){
 			
 			$conStr = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8";
@@ -43,6 +45,7 @@
 			$this->Id = intval($bi[0]["@id"]);			
 		}
 		
+		// Marks current instance to not active in the DB
 		static function Delete($id){
 			
 			$conStr = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8";
@@ -53,6 +56,7 @@
 			$stmt->execute();
 		}
 		
+		// Loads and returns the bid history for the passed in listing id
 		static function LoadByListing($listingId){
 			
 			$bids = Array();

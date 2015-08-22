@@ -55,8 +55,6 @@
 		//Description
 		$temp->setVariable("i_desc", $item->LongDescription);
 		
-		//TODO: Handle Multiple Images
-		
 		// Place a Bid link
 		if($listing->Status() == Listing::STATUS_ACTIVE){
 			$temp->setVariable("itemBidId", $listing->Id);

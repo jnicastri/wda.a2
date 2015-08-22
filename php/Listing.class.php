@@ -19,6 +19,8 @@
 		
 		function __construct(){ }
 		
+		// Returns the status of the current instance - eg is scheuled to
+		// begin in the future, is active now, is expired
 		function Status(){
 		
 			$now = new DateTime();
@@ -36,6 +38,7 @@
 			}	
 		}
 		
+		// Loads a users listings
 		static function LoadByUserId($uid, $status){
 			
 			$listings = Array();
@@ -68,6 +71,7 @@
 			return count($listings) > 0 ? $listings : null;
 		} 
 		
+		// Loads a single listing
 		static function LoadById($listingId){
 			
 			$conStr = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8";
@@ -93,6 +97,7 @@
 			return $item;
 		}
 		
+		// Retreives just the highest active bid for this listing
 		function GetTopBid(){
 			
 			if($this->Bids == null){
@@ -114,6 +119,7 @@
 			return $topBid;
 		}
 		
+		// Gets all bid for this listing
 		function GetBids(){
 			if($this->Bids == null)
 				$this->Bids = Bid::LoadByListing($this->Id);
@@ -121,6 +127,7 @@
 			return $this->Bids;
 		}
 		
+		// For committing new listings to the DB 
 		static function GetNew($listDate, $endDate, $itemId, $userId, $resAmt, $shipAmt, $bidIncr){
 			
 			$newListing = new Listing();

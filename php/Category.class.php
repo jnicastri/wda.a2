@@ -16,6 +16,7 @@
 			return $loadcat;
 		}
 		
+		// Retreives all category from the DB
 		static function GetAll(){
 			$conStr = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8";
 			$con = new PDO($conStr, DB_USER, DB_PWD);
@@ -37,6 +38,7 @@
 			return $categories;
 		}
 		
+		// Loads the details of a single category from the DB
 		function Load($id){
 			$conStr = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8";
 			$con = new PDO($conStr, DB_USER, DB_PWD);
@@ -52,6 +54,7 @@
 			$this->Description = $record['CategoryDescription'];
 		}
 		
+		// Save the current instance to the DB
 		function Save(){
 			
 			$conStr = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8";

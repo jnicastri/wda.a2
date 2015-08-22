@@ -9,6 +9,7 @@
 		
 		function __construct(){ }
 		
+		// Static loader to load by owning item
 		static function LoadByItemId($itemId){
 			
 			$conStr = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8";
@@ -35,6 +36,7 @@
 			return $mediaItems;
 		}
 		
+		// Updates the status of the image
 		function UpdateStatus($status, $primary){
 			
 			$this->IsActive = $status;

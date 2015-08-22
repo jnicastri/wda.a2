@@ -62,6 +62,7 @@
 			}
 		}
 		
+		// Loads a users 'purchases'
 		static function LoadByBuyer($buyerId){
 			
 			$transactions = Array();
@@ -104,6 +105,7 @@
 			return count($transactions) > 0 ? $transactions : null;
 		} 
 		
+		// Loads a users 'Sales'
 		static function LoadBySeller($sellerId){
 			
 			$transactions = Array();

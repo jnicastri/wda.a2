@@ -18,6 +18,7 @@
 			return $loadItem;
 		}
 		
+		// Commits a new Item to the DB
 		static function GetNew($name, $desc, $catId){
 			$newItem = new Item();
 			
@@ -94,6 +95,7 @@
 			}
 		}
 		
+		// Loads the primary image for the current instance
 		function GetPrimaryMediaItem(){
 			
 			if($this->mediaItems == null){
@@ -125,6 +127,7 @@
 			return null;
 		}
 		
+		// Loads a collection of images for the current instance
 		function GetAllMediaItems(){
 			
 			if($this->mediaItems == null){

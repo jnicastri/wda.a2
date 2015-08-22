@@ -33,6 +33,9 @@
 	
 	function bindData($data, $collType, &$temp){
 		
+		// Binds to a different table template depending on the 
+		// data type of the collection passed in (listings|purchases|sales)
+		
 		if($collType == "listings"){
 			if(is_null($data))
 				$temp->addBlock("listingsNoResults");

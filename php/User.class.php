@@ -17,6 +17,7 @@
 			return $loaduser;
 		}
 		
+		// For committing new user to DB
 		static function GetNew($firstName, $lastName, $email, $pwd, $userName, $address){
 			
 			$newUser = new User();
