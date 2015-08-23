@@ -8,7 +8,6 @@
 		if(!$load)
 			die ("Loading template has failed!");
 		
-		$temp->setVariable("baseurl", BASE_URL);
 		
 		if(isset($_SESSION[SESSION_LOGIN_ERROR])){
 			$temp->setVariable("helperMsg", $_SESSION[SESSION_LOGIN_ERROR]);
