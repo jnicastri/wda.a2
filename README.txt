@@ -1,7 +1,7 @@
 WDA - Assignment 2
 
-Student No. s3407908
-Student Email: s3407908@student.rmit.edu.au
+Student No. XXXXXXXX
+Student Email: XXXXXXX
 Student Name: James Nicastri
 
 TEAM DETAILS:
@@ -9,7 +9,7 @@ TEAM DETAILS:
 
 
 LAMP STACK DETAILS:
-This application is deployed at, and can be tested at: http://54.79.117.156/
+This application is deployed at, and can be tested at: http://XXX.XXX.XXX.XXX/
 Standard LAMP Stack used:
 - PHP
 - Apache2
@@ -19,8 +19,8 @@ Standard LAMP Stack used:
 
 
 SOURCE CONTROL:
-Bitbucket private repo is here: https://bitbucket.org/jnicastri/wda_a2
-I granted access to Halil Ali on 23/08/2015
+Bitbucket private repo is here: XXXXXXXX
+I granted access to XXXXX on 23/08/2015
 
 
 NOTES TO MARKER:
